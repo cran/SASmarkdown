@@ -33,7 +33,7 @@ the value of \code{hooktype}.
 The end user should not need to use \code{sasloghook} directly.  
 This is a
 workhorse function used to process selected log output.  The main use
-is when set up within \code{knit_hooks$set(source=loghook)}
+is when set up within \code{knit_hooks$set(source=sasloghook)}
 
 Once this hook is set, the user may then set any chunk options
 
@@ -60,7 +60,7 @@ Doug Hemken
 
 }
 \examples{
-saslog_hookset("source")
+# saslog_hookset() # called during loading
 
 \dontrun{
 indoc <- '
@@ -71,14 +71,10 @@ output: html_document
 ---
 # In a first code chunk, set up with
 ```{r}
-require(SASmarkdown)
-saslog_hookset("source")
-
-sasexe <- "C:/Program Files/SASHome/SASFoundation/9.4/sas.exe"
-sasopts <- "-nosplash -ls 75"
+library(SASmarkdown)
 ```
 # Then set up SAS code chunks with
-```{r, engine="saslog", engine.path=sasexe, engine.opts=sasopts, SASecho=FALSE}
+```{saslog, SASecho=FALSE}
 proc means data=sashelp.class;
 run;
 ```

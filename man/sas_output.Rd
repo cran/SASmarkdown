@@ -1,5 +1,6 @@
 \name{sas_output}
 \alias{sas_output}
+\alias{hook_orig}
 \title{
 A function to provide cleaner output for knitr's SAS engines.
 }
@@ -49,14 +50,11 @@ output: html_document
 ---
 # In a first code chunk, set up with
 ```{r}
-require(SASmarkdown)
-sas_enginesetup(sashtml=sashtml)
-
-sasexe <- "C:/Program Files/SASHome/SASFoundation/9.4/sas.exe"
-sasopts <- "-nosplash -ls 75"
+library(SASmarkdown)
 ```
+
 # Then set up SAS code chunks with
-```{r, engine="sashtml", engine.path=sasexe, engine.opts=sasopts}
+```{sashtml}
 proc means data=sashelp.class;
 run;
 ```
