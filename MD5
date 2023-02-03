@@ -1,9 +1,9 @@
-6a192d6e637db2276144ae201623a60f *DESCRIPTION
+e5d85f2edd6ef3c86c7632f43e74e967 *DESCRIPTION
 27980eff18dccb6bcd16308fd4503fca *LICENSE
 8e72092561db6c6caa722ba69620d341 *NAMESPACE
 472e811cea46a4368d0b74858458682d *R/find_sas.r
 e307b80ab00f2bc031b4e5edb03818f6 *R/misc.r
-2f2336861f928018f89c12145e2e1c71 *R/sas_collectcode.r
+509d0c35c640ddc1d16996e423922962 *R/sas_collectcode.r
 9ed4efb74da5485ab5b747ba55c40ec2 *R/sas_enginesetup.r
 8136bb05b31a8befe800292cc4789f8d *R/sas_output.r
 344d79519ab0af758ae2449f4d234702 *R/sashtml.r
@@ -22,7 +22,7 @@ b1a4b2cf1519ebc4619b7b7cef3b6f00 *inst/doc/1_Basic_Use_of_SASmarkdown.html
 e5fb7a26ca63ec8609c7ec81917dc816 *inst/doc/5_Saving_Intermediate_SAS_Files.html
 ac11fd467fad956029055b3f7835c60f *inst/doc/7_Spinning_SASmarkdown.html
 2825f26d8b5c47e9f0d03b1208253cad *man/SASmarkdown-package.rd
-8b1086f8048d00336a876bed0b4fca58 *man/find_sas.Rd
+9184a3e881d421e5d925a7c03aab733b *man/find_sas.Rd
 72f7dfad06fc428f3e177688a87f0e89 *man/sas_collectcode.Rd
 0981b30129d2b3373cbd9de44b34348d *man/sas_enginesetup.rd
 2361e00cfa15f22464e1332617e478a2 *man/sas_output.Rd
