@@ -32,33 +32,38 @@ Doug Hemken
 \code{\link{SASmarkdown-package}}
 }
 \examples{
-\dontrun{
 indoc <- '
+---
+title: "Basic SASmarkdown Doc"
+author: "Doug Hemken"
+output: html_document
+---
 # An R console example
 ## In a first code chunk, set up with
 ```{r}
 library(SASmarkdown)
 ```
 ## Then mark SAS code chunks with
-```{sas, collectcode=TRUE}
+```{sas}
 data class;
   set sashelp.class;
   bmi = 703*weight/height**2;
   run;
-```
-
-## A later chunk that depends on the first.
-```{sas}
+  
 proc means;
   var bmi;
   run;
 ```
+Some more document text here.
 '
-# To run this example, remove tempdir().
-fmd <- file.path(tempdir(), "test.md")
-fhtml <- file.path(tempdir(), "test.html")
 
-knitr::knit(text=indoc, output=fmd)
-markdown::mark_html(fmd, fhtml)
+if (!is.null(SASmarkdown::find_sas())) {
+  # To run this example, remove tempdir().
+  fmd <- file.path(tempdir(), "test.md")
+  fhtml <- file.path(tempdir(), "test.html")
+
+  knitr::knit(text=indoc, output=fmd)
+  rmarkdown::render(fmd, "html_document", fhtml)
 }
+
 }

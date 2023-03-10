@@ -1,9 +1,10 @@
 Package: SASmarkdown
-Version: 0.8.1
-Date: 2023-02-03
+Version: 0.8.2
+Date: 2023-03-09
 Title: 'SAS' Markdown
 Description: Settings and functions to extend the 'knitr' 'SAS' engine.
 Imports: knitr(>= 1.21), xfun(>= 0.4)
+Suggests: rmarkdown
 SystemRequirements: SAS
 Authors@R: c(person("Doug", "Hemken", email="dehemken@wisc.edu", 
         role=c("aut", "cre"), comment="SSCC, Univ. of Wisconsin-Madison"),
@@ -14,8 +15,8 @@ URL:
         https://www.ssc.wisc.edu/~hemken/SASworkshops/sas.html#writing-sas-documentation
 BugReports: https://github.com/Hemken/SASmarkdown/issues
 NeedsCompilation: no
-Packaged: 2023-02-03 14:13:47 UTC; hemken
+Packaged: 2023-03-10 15:58:07 UTC; hemken
 Author: Doug Hemken [aut, cre] (SSCC, Univ. of Wisconsin-Madison),
   Chao Cheng [ctb] (Statistician, Simcere Pharmaceutical Group Limited)
 Repository: CRAN
-Date/Publication: 2023-02-03 22:02:30 UTC
+Date/Publication: 2023-03-10 17:30:06 UTC
