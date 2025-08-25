@@ -32,10 +32,10 @@ include markup within SAS comments.  See \code{\link{spinsas}}.
 }
 \references{
 More documentation and examples: 
-\url{http://www.ssc.wisc.edu/~hemken/SASworkshops/sas.html#writing-sas-documentation}
+\url{https://www.ssc.wisc.edu/~hemken/SASworkshops/sas.html#writing-sas-documentation}
 }
 \seealso{
-The package that this extends: \code{\link{knitr-package}}.
+The package that this extends: \code{\link[knitr:knitr-package]{knitr-package}}.
 }
 \author{
 Doug Hemken

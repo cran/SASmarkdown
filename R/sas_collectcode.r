@@ -1,4 +1,4 @@
-sas_collectcode <- function() {
+sas_collectcode <- function() { # initialize collectcode hook
     if (file.exists("autoexec.sas")) {
         assign("oautoexec", readLines("autoexec.sas"), pos=2)
         message("Found an existing 'autoexec.sas'.")
@@ -6,24 +6,35 @@ sas_collectcode <- function() {
         oautoexec <- NULL
     }
     
-knitr::knit_hooks$set(collectcode = function(before, options, envir) {
+    knitr::knit_hooks$set(collectcode = function(before, options, envir) {
+        # print("\n")
+        # print(paste("Chunk label=", options$label))
+        # print(paste("before=", before))
+        # print(paste("collectcode=", options$collectcode))
+        # print(paste("eval=", options$eval))
     if (!before) {
         if (options$engine %in% c("sas", "saslog", 
                                   "sashtml", "sashtmllog", 
-                                  "sashtml5", "sashtml5log")) {
+                                  "sashtml5", "sashtml5log",
+                                  "saspdf", "saspdflog")
+            & options$collectcode==TRUE) {
             autoexec <- file("autoexec.sas", open="at")
             writeLines(options$code, autoexec)
             close(autoexec)
-            #print(sys.frames())
-            #print(sys.calls())
-        do.call("on.exit", 
-            list(quote(unlink("autoexec.sas")), add=TRUE),
-            envir = sys.frame(-9)) 
-        do.call("on.exit", 
-           list(quote(print(sys.call())), add=TRUE),
-            envir = sys.frame(-9)) 
-            # sys.frame(1) or sys.frame(-10) is rmarkdown::render()
-            # sys.frame(-9) is knitr::knit()
+            # print(sys.calls())
+            # print(sys.frames())
+        if (utils::packageVersion('knitr') < '1.45') {
+            do.call("on.exit",
+                    list(quote(unlink("autoexec.sas")), add=TRUE),
+                    envir = sys.frame(-9))
+        } else if (utils::packageVersion('knitr') >= '1.45') {
+            do.call("on.exit",
+                    list(quote(unlink("autoexec.sas")), add=TRUE),
+                    envir = sys.frame(-10))
+            # sys.frame(1) or sys.frame(-11) is rmarkdown::render()
+            # sys.frame(2) or sys.frame(-10) is knitr::knit()
+        }
+
         if (!is.null(oautoexec)) {
             do.call("on.exit",
                 list(quote(writeLines(oautoexec, "autoexec.sas")), add=TRUE),
